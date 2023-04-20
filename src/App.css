@@ -28,6 +28,35 @@
   color: #61dafb;
 }
 
+i{
+  cursor: pointer;
+  position: absolute;
+  right: 64px;
+}
+i+i{
+  margin-right: 36px;
+}
+
+input.active{
+  color: rgb(8, 255, 8);
+  font-weight: bold;
+}
+
+input.done{
+  color:red;
+  font-weight: bold;
+  text-decoration: line-through;
+}
+
+input {
+  font-size: 16px;
+  /* background-color: transparent; */
+  /* border: none; */
+  width: 91%;
+  padding: 12px 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
