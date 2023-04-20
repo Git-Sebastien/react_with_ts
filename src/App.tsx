@@ -13,11 +13,10 @@ const App :React.FC = () => {
   const handleSubmit = (event :React.FormEvent<HTMLFormElement>):void => {
     event.preventDefault();
     console.log("Formulaire soumis");
-      if(todo.current){
-        setTodos([...todos,{name:todo.current?.value,isDone:false,isDisabled:true}])
-        todo.current.value = ""
-      }
-  }
+    if(todo.current?.value){
+      setTodos([...todos,{name:todo.current?.value,isDone:false,isDisabled:true}])
+    }
+  } 
 
   const handleChange = (event :React.FormEvent<HTMLInputElement>,id :number):void  => {
     const {value} = event.currentTarget;
@@ -37,10 +36,8 @@ const App :React.FC = () => {
     const toggleDone = todos.map((element,index) => index === id ? {...element,isDone : !element.isDone} : element )
     setTodos(toggleDone);
   }
-
-
-   
-  const getTodo = () => {
+ 
+  const getTodo = () => { // Get the list
     return todos.map((element,index) => 
     <div key={index}>
       <input 
@@ -54,7 +51,6 @@ const App :React.FC = () => {
         placeholder='Entrez un todo'
         className={element.isDone ? 'done':'active'}
       />
-
       <i onClick={()=>handleDone(index)}>V</i> - 
       <i onClick={(event)=>handleEdit(index,event)}>edit</i>
     </div>
@@ -63,7 +59,6 @@ const App :React.FC = () => {
 
   return (
     <div className="App">
-
       <Form 
       name="todo" 
       value='Nom' 
@@ -72,7 +67,6 @@ const App :React.FC = () => {
       <ul>
         {getTodo()}
       </ul>
-     
     </div>
 
   );
