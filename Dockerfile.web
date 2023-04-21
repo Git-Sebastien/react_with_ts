@@ -1,0 +1,6 @@
+FROM node:alpine 
+WORKDIR /app
+COPY . /app/
+RUN yarn run build
+EXPOSE 8000
+CMD ["yarn","start"]

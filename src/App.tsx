@@ -20,13 +20,13 @@ const App :React.FC = () => {
 
   const handleChange = (event :React.FormEvent<HTMLInputElement>,id :number):void  => {
     const {value} = event.currentTarget;
-    const edit = todos.map((element,index) => index == id ? {...element, name:value}:element)  
+    const edit = todos.map((element,index) => index === id ? {...element, name:value}:element)  
     setTodos(edit)
   }
 
   const handleEdit = (id:number,event:React.MouseEvent) => {
     
-    let html:string = event.currentTarget.innerHTML == "edit" ? 'Validé' : "edit";
+    let html:string = event.currentTarget.innerHTML === "edit" ? 'Validé' : "edit";
     event.currentTarget.innerHTML = html
     const toggleDisabled = todos.map((element,index) => index === id ? {...element,isDisabled : !element.isDisabled} : element)
     setTodos(toggleDisabled)
